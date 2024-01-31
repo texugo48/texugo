@@ -1,23 +1,55 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vídeo do YouTube</title>
+    <title>Exibir URL Anterior</title>
 </head>
 <body>
 
-    <button onclick="abrirJanela()">Abrir Vídeo</button>
+    <body>
+
+    <label for="urlInput">Insira a URL:</label>
+    <input type="text" id="urlInput">
+    <button onclick="abrirNovaPagina()">Abrir Nova Página</button>
 
     <script>
-        function abrirJanela() {
-            var videoId = 'G4G9dnsjUKg';
-            var url = 'https://youtu.be/G4G9dnsjUKg' + videoId;
+        function abrirNovaPagina() {
+            var urlInput = document.getElementById('urlInput').value;
             
-            // Abrir uma nova janela ou aba
-            window.open(url, '_blank');
+            // Verifica se a URL começa com "http://" ou "https://"
+            if (!/^https?:\/\//i.test(urlInput)) {
+                // Se não começar com "http://" ou "https://", adiciona "http://"
+                urlInput = 'http://' + urlInput;
+            }
+
+            // Abre a URL em uma nova janela
+            window.open(urlInput, '_blank');
         }
     </script>
 
+</body>
+<body>
+
+    <label for="urlInput">Insira a URL:</label>
+    <input type="text" id="urlInput">
+    <button onclick="abrirNovaPagina()">Abrir Nova Página</button>
+
+    <script>
+        function abrirNovaPagina() {
+            var urlInput = document.getElementById('urlInput').value;
+            
+            // Verifica se a URL começa com "http://" ou "https://"
+            if (!/^https?:\/\//i.test(urlInput)) {
+                // Se não começar com "http://" ou "https://", adiciona "http://"
+                urlInput = 'http://' + urlInput;
+            }
+
+            // Abre a URL em uma nova janela
+            window.open(urlInput, '_blank');
+        }
+    </script>
+
+</body>
 </body>
 </html>
