@@ -7,7 +7,28 @@
 </head>
 <body>
 
-    <body>
+   
+    <label for="urlInput">Insira a URL:</label>
+    <input type="text" id="urlInput">
+    <button onclick="abrirNovaPagina()">Abrir</button>
+
+    <script>
+        function abrirNovaPagina() {
+            var urlInput = document.getElementById('urlInput').value;
+            
+            // Verifica se a URL começa com "http://" ou "https://"
+            if (!/^https?:\/\//i.test(urlInput)) {
+                // Se não começar com "http://" ou "https://", adiciona "http://"
+                urlInput = 'http://' + urlInput;
+            }
+
+            // Abre a URL em uma nova janela
+            window.open(urlInput, '_blank');
+        }
+    </script>
+
+
+ 
 
     <label for="urlInput">Insira a URL:</label>
     <input type="text" id="urlInput">
@@ -28,8 +49,8 @@
         }
     </script>
 
-</body>
-  <body>
+
+ 
 
     <label for="urlInput">Insira a URL:</label>
     <input type="text" id="urlInput">
@@ -50,8 +71,8 @@
         }
     </script>
 
-</body>
- <body>
+<br><br>
+
 
     <label for="urlInput">Insira a URL:</label>
     <input type="text" id="urlInput">
@@ -72,8 +93,8 @@
         }
     </script>
 
-</body><br><br>
-<body>
+
+ 
 
     <label for="urlInput">Insira a URL:</label>
     <input type="text" id="urlInput">
@@ -94,8 +115,8 @@
         }
     </script>
 
-</body>
- <body>
+
+ 
 
     <label for="urlInput">Insira a URL:</label>
     <input type="text" id="urlInput">
@@ -116,32 +137,10 @@
         }
     </script>
 
-</body>
- <body>
-
-    <label for="urlInput">Insira a URL:</label>
-    <input type="text" id="urlInput">
-    <button onclick="abrirNovaPagina()">Abrir</button>
-
-    <script>
-        function abrirNovaPagina() {
-            var urlInput = document.getElementById('urlInput').value;
-            
-            // Verifica se a URL começa com "http://" ou "https://"
-            if (!/^https?:\/\//i.test(urlInput)) {
-                // Se não começar com "http://" ou "https://", adiciona "http://"
-                urlInput = 'http://' + urlInput;
-            }
-
-            // Abre a URL em uma nova janela
-            window.open(urlInput, '_blank');
-        }
-    </script>
-
- </body<br><br>
- <body><br><br>
+ <br><br>
+ <br><br>
  <h1><a href="https://lookerstudio.google.com/reporting/7151fd36-52a4-4faa-bbf1-3cc534e31236/page/wbPlD?s=kFp_gbF9kZg" target="_blank">Site1  Operação Verão</a></h><br>
  <h1><a href="https://lookerstudio.google.com/reporting/479ffbda-32c7-4075-aa22-41fcbd5bec31/page/QxdlD?s=nldUjXGXmTc" target="_blank">Site2   Operação Verão</a></h>
- </body>
+ 
 </body>
 </html>
