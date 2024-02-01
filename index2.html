@@ -1,0 +1,35 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibir URL Anterior</title>
+</head>
+<body>
+
+   
+    <label for="urlInput">Insira a URL:</label>
+    <input type="text" id="urlInput">
+    <button onclick="abrirNovaPagina()">Abrir</button>
+
+
+
+
+ <script>
+        function abrirNovaPagina() {
+            var urlInput = document.getElementById('urlInput').value;
+            
+            // Verifica se a URL começa com "http://" ou "https://"
+            if (!/^https?:\/\//i.test(urlInput)) {
+                // Se não começar com "http://" ou "https://", adiciona "http://"
+                urlInput = 'http://' + urlInput;
+            }
+
+            // Abre a URL em uma nova janela
+            window.open(urlInput, '_blank');
+        }
+ </script>
+
+</body>
+</body>
+</html>
