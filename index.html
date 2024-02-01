@@ -29,6 +29,28 @@
     </script>
 
 </body>
+ <body>
+
+    <label for="urlInput">Insira a URL:</label>
+    <input type="text" id="urlInput">
+    <button onclick="abrirNovaPagina()">Abrir Nova Página</button>
+
+    <script>
+        function abrirNovaPagina() {
+            var urlInput = document.getElementById('urlInput').value;
+            
+            // Verifica se a URL começa com "http://" ou "https://"
+            if (!/^https?:\/\//i.test(urlInput)) {
+                // Se não começar com "http://" ou "https://", adiciona "http://"
+                urlInput = 'http://' + urlInput;
+            }
+
+            // Abre a URL em uma nova janela
+            window.open(urlInput, '_blank');
+        }
+    </script>
+
+</body>
 <body>
 
     <label for="urlInput">Insira a URL:</label>
