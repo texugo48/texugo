@@ -1,37 +1,63 @@
- <!DOCTYPE html>
+ 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exibir URL Anterior</title>
+    <title>Visualização de Vídeo</title>
 </head>
 <body>
 
-   
-    <label for="urlInput">Insira a URL:</label>
-    <input type="text" id="urlInput">
-    <button onclick="abrirNovaPagina()">Abrir</button>
+    <h1>Insira a URL do Vídeo:</h1>
+    
+    <input type="text" id="urlInput" placeholder="Cole a URL do vídeo aqui">
+    <button onclick="exibirVideo()">Exibir Vídeo</button>
 
+    <div id="videoContainer">
+        <!-- O iframe será exibido aqui -->
+    </div>
 
-
-
- <script>
-        function abrirNovaPagina() {
+    <script>
+        function exibirVideo() {
             var urlInput = document.getElementById('urlInput').value;
-            
-            // Verifica se a URL começa com "http://" ou "https://"
-            if (!/^https?:\/\//i.test(urlInput)) {
-                // Se não começar com "http://" ou "https://", adiciona "http://"
-                urlInput = 'http://' + urlInput;
+            var videoContainer = document.getElementById('videoContainer');
+
+            // Verificar se a URL não está vazia
+            if (urlInput.trim() !== '') {
+                // Extrair o ID do vídeo do YouTube a partir da URL
+                var videoId = extrairIdDoVideo(urlInput);
+
+                // Verificar se o ID do vídeo é válido
+                if (videoId !== null) {
+                    // Criar o iframe com a API de incorporação do YouTube
+                    var iframe = document.createElement('iframe');
+                    iframe.width = '560';
+                    iframe.height = '315';
+                    iframe.src = 'https://www.youtube.com/embed/' + videoId;
+                    iframe.title = 'Vídeo Incorporado';
+                    iframe.frameBorder = '0';
+                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                    iframe.allowFullscreen = true;
+
+                    // Limpar qualquer conteúdo anterior no contêiner de vídeo
+                    videoContainer.innerHTML = '';
+
+                    // Adicionar o iframe ao contêiner de vídeo
+                    videoContainer.appendChild(iframe);
+                } else {
+                    alert('Por favor, insira uma URL válida do vídeo do YouTube.');
+                }
+            } else {
+                alert('Por favor, insira uma URL válida do vídeo.');
             }
-
-            // Abre a URL em uma nova janela
-            window.open(urlInput, '_blank');
         }
- </script>
 
+        function extrairIdDoVideo(url) {
+            var regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+            var match = url.match(regex);
+            return match ? match[1] : null;
+        }
+    </script>
 
-   
- 
 </body>
 </html>
